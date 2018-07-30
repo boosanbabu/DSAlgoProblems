@@ -12,6 +12,11 @@ public class Application {
 		sll.display();
 		sll.valueAtNthNode(2);
 		sll.midElement();
+		sll.display();
+		sll.reverse();
+		sll.display();
+		sll.recursiveReverse();
+		sll.display();
 
 	}
 

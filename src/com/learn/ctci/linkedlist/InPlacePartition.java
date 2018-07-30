@@ -3,14 +3,10 @@ package com.learn.ctci.linkedlist;
 import com.learn.ds.linkedlist.Node;
 import com.learn.ds.linkedlist.SinglyLinkedList;
 
-/* 
- *  Partitioning a linked list around a given value and keeping the original order
+/*  Partitioning a linked list around a given value and keeping the original order
 	Given a linked list and a value x, partition it such that all nodes less than x come first, 
 	then all nodes with value equal to x and finally nodes with value greater than or equal to x. 
-	The original relative order of the nodes in each of the three partitions should be preserved. 
-	The partition must work in-place.
-	
-	Examples:
+	The original relative order of the nodes in each of the three partitions should be preserved. The partition must work in-place.
 	
 	Input : 1->4->3->2->5->2->3,  (x = 3)
 	Output: 1->2->2->3->3->4->5
@@ -21,57 +17,44 @@ import com.learn.ds.linkedlist.SinglyLinkedList;
 
 public class InPlacePartition {
 
-	public static Node partionLLAround(int n, Node head)
-	{
-		if(head==null)
-		{
+	public static Node partionLLAround(int n, Node head){
+		if(head==null){
 			System.err.println("Empty List!");
 			return null;
 		}
 		Node ptr = head;
-		Node l = null, m = null, r = null;
-		Node mStart = null, rStart = null, lStart = null;
+		Node l = null, m = null, r = null, mStart = null, rStart = null, lStart = null; 
 		while(ptr!=null){
 			Node nextNode = ptr.getNext();
 			ptr.setNext(null);
 			
 			int d = ptr.getData();
 			if(d<n){
-				if(l==null)
-				{
-					lStart = ptr;
-					l = ptr;
+				if(l==null){
+					lStart = l =ptr;
 					ptr = nextNode;
 					continue;
 				}
-
 				l.setNext(ptr);
 				l = l.getNext();
 				//doProcess(ptr,l,lStart);
 			}
 			else if(d>n){
-				if(r==null)
-				{
-					rStart = ptr;
-					r = ptr;
+				if(r==null){
+					rStart = r = ptr;
 					ptr = nextNode;
 					continue;
 				}
-
 				r.setNext(ptr);
 				r = r.getNext();
-
 				//doProcess(ptr,r,rStart);
 			}
 			else{
-				if(m==null)
-				{
-					mStart = ptr;
-					m = ptr;
+				if(m==null){
+					mStart = m = ptr;
 					ptr = nextNode;
 					continue;
 				}
-
 				m.setNext(ptr);
 				m = m.getNext();
 				//doProcess(ptr, m, mStart);
@@ -79,10 +62,8 @@ public class InPlacePartition {
 			ptr = nextNode;
 		}
 		
-		if(l!=null)
-		{
-			if(m!=null)
-			{
+		if(l!=null){
+			if(m!=null){
 				l.setNext(mStart);
 				m.setNext(rStart);
 			}
@@ -91,27 +72,17 @@ public class InPlacePartition {
 			}
 			return lStart;
 		}
-		else{
-			if(m!=null)
-			{
-				m.setNext(rStart);
-				return mStart;
-			}
-			return rStart;
-		}
-			
 
-		
-		
-		
+		if(m!=null){
+			m.setNext(rStart);
+			return mStart;
+		}
+		return rStart;
 	}
 	
-	public static void doProcess(Node ptr, Node track, Node start)
-	{
-		if(track==null)
-		{
-			start = ptr;
-			track = ptr;
+	public static void doProcess(Node ptr, Node track, Node start){
+		if(track==null){
+			start = track = ptr;
 			return;
 		}
 
@@ -120,12 +91,8 @@ public class InPlacePartition {
 	}
 	
 	public static void main(String[] args) {
-
-		SinglyLinkedList sll = new SinglyLinkedList("10->4->20->10->3");
+		SinglyLinkedList sll = new SinglyLinkedList("1->4->3->2->5->2->3");
 		sll.setHead(partionLLAround(3,sll.getHead()));
 		sll.display();
 	}
-	
-	
-
 }

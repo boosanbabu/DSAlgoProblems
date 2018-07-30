@@ -1,5 +1,7 @@
 package com.learn.ds.linkedlist;
 
+import java.util.Stack;
+
 public class SinglyLinkedList {
 	
 	Node head;
@@ -149,6 +151,43 @@ public class SinglyLinkedList {
 		{
 			insertAtEnd(Integer.parseInt(e));
 		}
+		
+	}
+	
+	public void reverse()
+	{
+		if(isEmpty() || head.getNext()==null)
+		{
+			return;
+		}
+		Node prev = null, curr = head, next = null;
+		
+		do{
+			next = curr.getNext();
+			curr.setNext(prev);
+			prev = curr;
+			curr = next;
+		}while(curr!=null);
+	
+		head = prev;
+	}
+	
+	public void recursiveReverse()
+	{
+		recursiveReverse(head);
+	}
+
+	private void recursiveReverse(Node ptr) {
+		if(ptr==null)
+			return;
+		if(ptr.getNext()==null){
+			head = ptr;
+			return;
+		}
+			
+		recursiveReverse(ptr.getNext());
+		ptr.getNext().setNext(ptr);
+		ptr.setNext(null);
 		
 	}
 
