@@ -1,12 +1,21 @@
 # DSAlgoProblems
 
-This Repository consists of standard data structure and algorithm problems
+This Repository consists Java Code for standard data structure and algorithm problems
 
-Dynamic Programming
+1. Data Structures
+	a. LinkedList
+	b. Tree
+	c. Graph
 
-1. Knapsack Problem
-2. Minimum Cost Problem - Matrix
-3. All Paths - Matrix
-4. No. of ways for Coin change
-5. Minimum Coins change
-6. Unbound Knapsack Problem
+2. Algorithms
+	a. Dynamic Programming
+
+
+
+2.a. Dynamic Programming
+	a. Knapsack Problem
+	b. Minimum Cost Problem - Matrix
+	c. All Paths - Matrix
+	d. No. of ways for Coin change
+	e. Minimum Coins change
+	f. Unbound Knapsack Problem
