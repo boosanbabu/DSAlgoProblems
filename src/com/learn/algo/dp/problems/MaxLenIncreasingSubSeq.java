@@ -31,7 +31,12 @@ public class MaxLenIncreasingSubSeq {
 				}
 			}
 		}
-		return res[arr.length-1];
+		
+		int maxLen = res[arr.length-1];
+		for(int i=arr.length-2;i>=0;i--){
+			maxLen = maxLen<res[i]?res[i]:maxLen;
+		}
+		return maxLen;
 	}
 
 }

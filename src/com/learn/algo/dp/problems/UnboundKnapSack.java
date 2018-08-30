@@ -3,7 +3,7 @@ package com.learn.algo.dp.problems;
  * 
  * @author Boosan
  * 
- * Given an array of integers and a target sum, 
+ * Given an array of positive integers and a target sum, 
  * determine the sum nearest to but not exceeding the target that can be created. 
  * To create the sum, use any element of your array zero or more times.
  *
