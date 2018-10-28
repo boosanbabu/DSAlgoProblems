@@ -1,7 +1,5 @@
 package com.learn.ds.linkedlist;
 
-import java.util.Stack;
-
 public class SinglyLinkedList {
 	
 	Node head;
